@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /index.php
+Allow: /about.php
+Allow: /contact.php
+Allow: /privacy.php
+Allow: /disclaimer.php
+
+# Protect user financial dashboards and private application endpoints
+Disallow: /dashboard/
+Disallow: /transactions/
+Disallow: /budgets/
+Disallow: /goals/
+Disallow: /reports/
+Disallow: /ai/
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /config/
+Disallow: /includes/
+
+Sitemap: http://localhost/nachoka/sitemap.xml

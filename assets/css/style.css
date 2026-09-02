@@ -1,0 +1,286 @@
+/*
+ * CODE X - Modern Fintech UI & Design System
+ * Theme: Premium Dark Glassmorphic Fintech Dashboard
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --codex-bg-dark: #090d16;
+    --codex-card-bg: #131b2e;
+    --codex-card-hover: #1a243d;
+    --codex-border: rgba(255, 255, 255, 0.08);
+    --codex-border-hover: rgba(59, 130, 246, 0.4);
+    
+    --codex-primary: #3b82f6;
+    --codex-primary-glow: rgba(59, 130, 246, 0.3);
+    --codex-secondary: #6366f1;
+    --codex-success: #10b981;
+    --codex-success-glow: rgba(16, 185, 129, 0.25);
+    --codex-danger: #ef4444;
+    --codex-danger-glow: rgba(239, 68, 68, 0.25);
+    --codex-warning: #f59e0b;
+    --codex-info: #06b6d4;
+    
+    --codex-text-main: #f8fafc;
+    --codex-text-muted: #94a3b8;
+    --codex-text-dim: #64748b;
+    
+    --codex-gradient-hero: linear-gradient(135deg, #090d16 0%, #1e1b4b 50%, #090d16 100%);
+    --codex-gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    --codex-gradient-income: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    --codex-gradient-expense: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    --codex-gradient-balance: linear-gradient(135deg, #2563eb 0%, #6366f1 100%);
+}
+
+body {
+    background-color: var(--codex-bg-dark);
+    color: var(--codex-text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .font-heading {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+/* Glassmorphism Cards */
+.codex-card {
+    background: var(--codex-card-bg);
+    border: 1px solid var(--codex-border);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.codex-card:hover {
+    border-color: var(--codex-border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.15);
+}
+
+.codex-card-header {
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--codex-border);
+    padding: 1.25rem 1.5rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+/* Brand styling */
+.brand-name {
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    vertical-align: middle;
+}
+
+/* Metric Stats Cards */
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+
+.stat-card.stat-income::before { background: var(--codex-success); }
+.stat-card.stat-expense::before { background: var(--codex-danger); }
+.stat-card.stat-balance::before { background: var(--codex-primary); }
+.stat-card.stat-savings::before { background: var(--codex-warning); }
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.stat-icon-income { background: rgba(16, 185, 129, 0.15); color: var(--codex-success); }
+.stat-icon-expense { background: rgba(239, 68, 68, 0.15); color: var(--codex-danger); }
+.stat-icon-balance { background: rgba(59, 130, 246, 0.15); color: var(--codex-primary); }
+.stat-icon-savings { background: rgba(245, 158, 11, 0.15); color: var(--codex-warning); }
+
+/* Navigation */
+.navbar-codex {
+    background: rgba(19, 27, 46, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--codex-border);
+}
+
+.navbar-codex .nav-link {
+    color: var(--codex-text-muted);
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.navbar-codex .nav-link:hover, .navbar-codex .nav-link.active {
+    color: var(--codex-text-main);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Buttons */
+.btn-codex-primary {
+    background: var(--codex-gradient-accent);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 4px 14px var(--codex-primary-glow);
+    transition: all 0.25s;
+}
+
+.btn-codex-primary:hover {
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-codex-outline {
+    background: transparent;
+    color: var(--codex-text-main);
+    border: 1px solid var(--codex-border);
+    font-weight: 500;
+}
+
+.btn-codex-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--codex-text-main);
+    border-color: var(--codex-text-muted);
+}
+
+/* Forms & Inputs */
+.form-control, .form-select {
+    background-color: #0f172a;
+    border: 1px solid var(--codex-border);
+    color: var(--codex-text-main);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #0f172a;
+    border-color: var(--codex-primary);
+    color: var(--codex-text-main);
+    box-shadow: 0 0 0 3px var(--codex-primary-glow);
+}
+
+/* Custom Tables */
+.table-codex {
+    color: var(--codex-text-main);
+    vertical-align: middle;
+}
+
+.table-codex th {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--codex-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--codex-border);
+    padding: 1rem;
+}
+
+.table-codex td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--codex-border);
+}
+
+.table-codex tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Progress Bars */
+.progress-codex {
+    background-color: rgba(255, 255, 255, 0.08);
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-income { background: var(--codex-gradient-income); }
+.progress-bar-expense { background: var(--codex-gradient-expense); }
+.progress-bar-warning { background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); }
+
+/* AI Assistant Chat UI */
+.chat-box {
+    height: 480px;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: #0b1120;
+    border-radius: 1rem;
+    border: 1px solid var(--codex-border);
+}
+
+.chat-bubble {
+    max-width: 82%;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.chat-bubble-user {
+    background: var(--codex-gradient-accent);
+    color: #fff;
+    margin-left: auto;
+    border-bottom-right-radius: 0.2rem;
+}
+
+.chat-bubble-ai {
+    background: #1e293b;
+    color: var(--codex-text-main);
+    border: 1px solid var(--codex-border);
+    margin-right: auto;
+    border-bottom-left-radius: 0.2rem;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background: #070a12;
+    border-top: 1px solid var(--codex-border);
+}
+
+/* Utility Badges */
+.badge-income { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.badge-expense { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+/* Financial Disclaimer Banner */
+.disclaimer-banner {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #fbbf24;
+    border-radius: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.85rem;
+}
